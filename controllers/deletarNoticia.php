@@ -7,6 +7,6 @@ $varNoticiaInfoCodigo = $_GET["noticiaInfoCodigo"];
 unlink($dir . $file);
 mysqli_query($conexao, "DELETE from noticias where noticia_id = $varPostagemCodigo");
 mysqli_query($conexao, "DELETE from infos where info_id = $varNoticiaInfoCodigo");
-mysqli_query($conexao, "DELETE from imgs where img_nomeAleatorio = '$file'");
+mysqli_query($conexao, "DELETE from imgs where img_nomeRandom = '$file'");
 header("location:../views/painel.php");
 ?>

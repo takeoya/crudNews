@@ -29,8 +29,6 @@ where noticia_id = $PostagemCodigo");
                 <tr>
                     <td class="text-center align-middle"><img src="../imagens/<?php echo $exibe[6] ?>" width="100px"></td>
                     <td class="align-middle p-3">
-                        <!-- Coloco um id chamado blog_codigo no href  -->
-
                         <label class="form-label lbl-input">Título<b></label>
                         <?php echo $exibe[1] ?>
                         <input class="form-control" type="text" name="noticiaTitulo" value="<?php echo $exibe[8] ?>">

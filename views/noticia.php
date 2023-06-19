@@ -20,9 +20,9 @@ include("blades/header.php");
         where noticia_id = $varPostagemCodigo");
         while ($exibe = mysqli_fetch_array($query)) {
             ?>
-            <h1 class="fw-bold">Notícia</h1>
+            <h1 class="fw-bold"><?php echo $exibe[8] ?></h1><br>
             <a class="btn btn-primary rounded lbl-button align-end" id="btn-voltar" href="../index.php">Voltar</a>
-            <br>
+            <br><br>
             <tr>
                 <td class="text-center align-middle p-5">
                     <img src="../imagens/<?php echo $exibe[6] ?>" width="200px">
@@ -40,39 +40,9 @@ include("blades/header.php");
                     <?php echo wordwrap($exibe[9], 20, "<br/> ", true) ?>
                 </td>
             </tr>
-            <tr>
-                <td colspan="2">
-                    <h4 class="text-center">Confira mais Notícias de
-                        <i>
-                            <?php echo $exibe[12] ?>:
-                        </i>
-                    </h4>
-                </td>
-            </tr>
-            <?php
-            $queryDois = mysqli_query($conexao, "SELECT * FROM noticias 
-                    INNER JOIN imgs ON noticia_img_id = img_id
-                    INNER JOIN infos ON noticia_info_id = info_id
-                    INNER JOIN usuarios ON noticia_usuario_id = usuario_id where noticia_usuario_id = $exibe[3] and noticia_id != $exibe[0]");
-            while ($exibe2 = mysqli_fetch_array($queryDois)) {
-                ?>
-                <tr>
-                    <td class="text-center align-middle">
-                        <img src="../imagens/<?php echo $exibe2[6] ?>" width="70px">
-                    </td>
-                    <td class="align-middle">
-                        <p>
-                            <?php echo $exibe2[8] ?>
-                        </p>
-                        <hr>
-                        <p>
-                            <?php echo substr($exibe2[9], 0, 30) . "..." ?>
-                        </p>
-
-                </tr>
                 <?php
             }
-        } ?>
+          ?>
 
     </table>
 </div>

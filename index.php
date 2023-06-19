@@ -6,7 +6,8 @@ include("views/blades/header.php");
     <?php include 'css/style.css'; ?>
 </style>
 <div class="container p-5 mt-5 rounded" id="mainContent">
-<h1 class="fw-bold">Notícia</h1>
+<h1 class="fw-bold">Notícias</h1>
+<a href="views"></a><button type="button" class="btn btn-success">Success</button>
 <hr>
 <br>
 
@@ -21,7 +22,7 @@ include("views/blades/header.php");
             $query = mysqli_query($conexao, "SELECT * FROM noticias 
             INNER JOIN imgs ON noticia_img_id = img_id
             INNER JOIN infos ON noticia_info_id = info_id
-            INNER JOIN usuarios ON noticia_usuario_id = usuario_id");
+            INNER JOIN usuarios ON noticia_usuario_id = usuario_id ORDER BY noticia_id DESC");
             while ($exibe = mysqli_fetch_array($query)) {
                 ?>
                 <tr>

@@ -1,28 +1,18 @@
 <?php
 include("../models/conexao.php");
-
 session_start();
-
-if(empty($_POST) || (empty($_POST["usuario"]) || (empty($_POST["senha"])))){
-    print "<script>location.href='../cms/index.php';</script>";
-}
-
+/*$email = $_POST["email"];*/
 $usuario = $_POST["usuario"];
-$senha = $_POST["senha"];
+$senha = $_POST["senha"];   
+$query = mysqli_query($conexao, "SELECT * FROM usuarios where usuario_nome = '$usuario' and usuario_senha = '" . md5($senha) . "';");
 
-$sql = "SELECT * FROM usuario WHERE usuario = '{$usuario}' AND senha = '{$senha}'";
+if($exibe = mysqli_fetch_array($query)){
+    $_SESSION['usuarioCodigo']= $exibe['usuario_id'];
+    $_SESSION['usuario']= $exibe['usuario_nome'];
+    $_SESSION['email']= $exibe['usuario_email'];
+    header("location: ../views/painel.php");
 
-$res = $conn->query($sql) or die($conn->error);
-$row = $res->fetch_object();
-$qtd = $res->num_rows;
-
-if($qtd > 0){
-    $_SESSION["usuario"] = $usuario;
-    $_SESSION["email"] = $row->email;
-
-    print "<script>location.href='../views/painel.php';</script>";
 }else{
-    print "<script>alert('Usuário ou senha incorreta');</script>";
-    print "<script>location.href='../cms/index.php';</script>";
+    echo "Usuário não encontrado ou senha incorreta.";
 }
 ?>

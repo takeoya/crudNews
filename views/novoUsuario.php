@@ -18,14 +18,7 @@ include("blades/header.php");
         <label class="form-label lbl-input">Senha:</label>
         <input class="form-control" type="text" name="usuario_senha">
         <br>
-        <div id="containerBtnSexo">
-            <label class="form-label lbl-input">Sexo:</label>
-            <div>
-                <input type="radio" name="usuario_sexo" value="m" checked>Masculino<br>
-                <input type="radio" name="usuario_sexo" value="f">Feminino<br>
-            </div>
-        </div>
-        <input class="btn btn-outline-dark mt-5 " type="submit" value="CadastrarUsuarioBtn">
+        <input class="btn btn-outline-dark mt-5 " type="submit" value="Cadastrar">
 
     </form>
 </div>

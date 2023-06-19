@@ -15,7 +15,7 @@ if ($extension == "png") {
     die("Arquivo não é compatível com o tipo 'PNG'");
 }
 
-mysqli_query($conexao, "INSERT INTO imgs(img_nome, img_nomeAleatorio) VALUES ('$ImgName', '$ImgNameRandom')");
+mysqli_query($conexao, "INSERT INTO imgs(img_nome, img_nomeRandom) VALUES ('$ImgName', '$ImgNameRandom')");
 
 $id_imgTable_last = mysqli_insert_id($conexao);
 

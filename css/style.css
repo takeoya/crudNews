@@ -45,14 +45,6 @@ body {
     padding: 50px;
     border-radius: 30px;
 }
-
-#containerBtnSexo {
-
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-
 #btn-voltar {
     width: 200px;
     align-items: end;

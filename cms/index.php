@@ -13,7 +13,7 @@ include("../views/blades/header.php");
                     <h3>Login</h3>
                 </div>
                 <div class="card-body">
-                    <form action="login.php" method="POST">
+                    <form action="../controllers/login.php" method="POST">
                         <div class="mb-3">
                             <label>Usuario</label>
                             <input type="text" name="usuario" class="form-control">
@@ -26,6 +26,7 @@ include("../views/blades/header.php");
                             <button type="submit" class="btn btn-primary">Confirmar</button></button>
                         </div>
                     </form>
+                    <a class="fw-bold" href="../views/novoUsuario.php">Cadastrar novo usuário</a>
                 </div>
             </div>
         </div>
